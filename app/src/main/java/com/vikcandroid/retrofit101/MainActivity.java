@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<GithubRepo>> call, Response<List<GithubRepo>> response) {
                 List<GithubRepo> repos = response.body();
-//                listView.setAdapter(new GithubRepoAdapter(MainActivity.this, repos));
-                // List adapter was misbehaving and I had no time. Main aim of this thing is to work with retrofit
-                // Fuck a list view, and fuck you too if you are bothered.
-                for (GithubRepo list : repos) {
-                    Toast.makeText(MainActivity.this, list.getName(), Toast.LENGTH_SHORT).show();
+                if (repos != null) {
+                    GithubRepoAdapter adapter = new GithubRepoAdapter(getApplicationContext(), repos);
+
+
+                listView.setAdapter(new GithubRepoAdapter(MainActivity.this, repos));
                 }
 
             }
