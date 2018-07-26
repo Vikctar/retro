@@ -41,12 +41,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<GithubRepo>> call, Response<List<GithubRepo>> response) {
                 List<GithubRepo> repos = response.body();
-                if (repos != null) {
-                    GithubRepoAdapter adapter = new GithubRepoAdapter(getApplicationContext(), repos);
 
-
-                listView.setAdapter(adapter);
-                }
+                listView.setAdapter(new GithubRepoAdapter(MainActivity.this, repos));
 
             }
 
