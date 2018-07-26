@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = (ListView) findViewById(R.id.list_view);
+        listView = findViewById(R.id.list_view);
 
         Retrofit.Builder builder = new Retrofit.Builder().baseUrl(API_BASE_URL).addConverterFactory(GsonConverterFactory.create());
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     GithubRepoAdapter adapter = new GithubRepoAdapter(getApplicationContext(), repos);
 
 
-                listView.setAdapter(new GithubRepoAdapter(MainActivity.this, repos));
+                listView.setAdapter(adapter);
                 }
 
             }
