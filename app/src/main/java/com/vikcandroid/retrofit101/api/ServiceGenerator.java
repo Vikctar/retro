@@ -1,5 +1,7 @@
 package com.vikcandroid.retrofit101.api;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -14,7 +16,16 @@ public class ServiceGenerator {
 
     static Retrofit retrofit = builder.build();
 
+    private static HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
+
+    private static OkHttpClient.Builder hBuilder = new OkHttpClient.Builder();
+
     public static <S> S createService(Class<S> serviceClass) {
+        if (!hBuilder.interceptors().contains(loggingInterceptor)) {
+            hBuilder.addInterceptor(loggingInterceptor);
+            builder = builder.client(hBuilder.build());
+            retrofit = builder.build();
+        }
         return retrofit.create(serviceClass);
     }
 }
