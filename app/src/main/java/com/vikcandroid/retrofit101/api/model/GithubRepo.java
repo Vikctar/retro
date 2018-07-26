@@ -1,10 +1,10 @@
-package com.vikcandroid.retrofit101;
+package com.vikcandroid.retrofit101.api.model;
 
 /**
  * Created by android-dev on 7/28/17.
  */
 
-class GithubRepo {
+public class GithubRepo {
     private int id;
     private String name;
 

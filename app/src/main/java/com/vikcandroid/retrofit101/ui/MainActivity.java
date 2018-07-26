@@ -1,9 +1,14 @@
-package com.vikcandroid.retrofit101;
+package com.vikcandroid.retrofit101.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.vikcandroid.retrofit101.R;
+import com.vikcandroid.retrofit101.api.model.GithubRepo;
+import com.vikcandroid.retrofit101.api.service.GithubClient;
+import com.vikcandroid.retrofit101.ui.adapter.GithubRepoAdapter;
 
 import java.util.List;
 

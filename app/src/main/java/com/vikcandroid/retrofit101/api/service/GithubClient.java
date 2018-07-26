@@ -1,4 +1,7 @@
-package com.vikcandroid.retrofit101;
+package com.vikcandroid.retrofit101.api.service;
+
+
+import com.vikcandroid.retrofit101.api.model.GithubRepo;
 
 import java.util.List;
 
